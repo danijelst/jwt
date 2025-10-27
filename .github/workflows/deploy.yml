@@ -25,7 +25,7 @@ jobs:
         run: bun install
 
       - name: Build your site
-        run: bun run build # Replace with your actual build command
+        run: bun run
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
