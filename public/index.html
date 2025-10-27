@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>JWT Encoder / Decoder</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>JWT Decoder / Encoder</h1>
+      <p>Fill in the fields below to generate a signed JWT.</p>
+    </header>
+
+    <div class="container">
+      <div class="left">
+        <section class="field-section">
+          <div class="field-header">
+            <label for="header">HEADER: ALGORITHM &amp; TOKEN TYPE</label>
+            <div class="field-actions">
+              <button id="copyHeader" class="btn small" title="Copy Header">COPY</button>
+              <button id="clearHeader" class="btn small" title="Clear Header">CLEAR</button>
+            </div>
+          </div>
+          <div class="code-input-wrapper">
+            <div id="header-highlight" class="code-highlight"></div>
+            <textarea id="header" spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off"></textarea>
+          </div>
+          <div id="headerValidation" class="validation-message"></div>
+        </section>
+
+        <section class="field-section">
+          <div class="field-header">
+            <label for="payload">PAYLOAD: DATA</label>
+            <div class="field-actions">
+              <button id="copyPayload" class="btn small" title="Copy Payload">COPY</button>
+              <button id="clearPayload" class="btn small" title="Clear Payload">CLEAR</button>
+            </div>
+          </div>
+          <div class="code-input-wrapper">
+            <div id="payload-highlight" class="code-highlight"></div>
+            <textarea id="payload" spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off"></textarea>
+          </div>
+          <div id="payloadValidation" class="validation-message"></div>
+        </section>
+
+        <section class="field-section">
+          <div class="field-header">
+            <label for="privateKey">SIGN JWT: PRIVATE KEY</label>
+            <div class="field-actions">
+              <button id="copyPrivateKey" class="btn small" title="Copy Private Key">COPY</button>
+              <button id="clearPrivateKey" class="btn small" title="Clear Private Key">CLEAR</button>
+            </div>
+          </div>
+          <textarea id="privateKey" spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="Private Key in PKCS #8, PKCS #1, or JWK string format. The key never leaves your browser."></textarea>
+          <div id="privateKeyValidation" class="validation-message"></div>
+        </section>
+
+        <section class="field-section">
+          <div class="field-header">
+            <label for="publicKey">VERIFY JWT: PUBLIC KEY</label>
+            <div class="field-actions">
+              <button id="copyPublicKey" class="btn small" title="Copy Public Key">COPY</button>
+              <button id="clearPublicKey" class="btn small" title="Clear Public Key">CLEAR</button>
+            </div>
+          </div>
+          <textarea id="publicKey" spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="Public Key in PEM or JWK string format."></textarea>
+          <div id="publicKeyValidation" class="validation-message"></div>
+        </section>
+      </div>
+
+      <div class="right">
+        <section class="field-section">
+          <div class="field-header">
+            <label for="jwt">JSON Web Token (JWT)</label>
+            <div class="jwt-actions">
+              <button id="clearJwtBtn" class="btn small" title="Clear JWT">CLEAR</button>
+              <button id="copyJwtBtn" class="btn small" title="Copy JWT">COPY</button>
+            </div>
+          </div>
+          <div class="jwt-input-wrapper">
+            <textarea id="jwt" spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="JSON Web Token"></textarea>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

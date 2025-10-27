@@ -1,0 +1,303 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code&display=swap");
+
+:root {
+  --background: #121212;
+  --background-alt: #1e1e1e;
+  --text: #ddd;
+  --text-error: #ff6b6b;
+  --text-success: #6bff9e;
+  --text-warning: #ffd966;
+  --btn-bg: #333;
+  --btn-hover-bg: #555;
+}
+
+body {
+  margin: 0;
+  background-color: var(--background);
+  color: var(--text);
+  font-family: "Fira Code", monospace;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #333;
+}
+
+header h1 {
+  margin: 0 0 0.2rem 0;
+  font-weight: 600;
+  font-size: 1.6rem;
+}
+
+header p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #999;
+}
+
+.container {
+  display: flex;
+  flex: 1;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  overflow: hidden;
+}
+
+.left {
+  flex: 1.1;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+.right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-left: 8px;
+}
+
+.field-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.field-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #888;
+}
+
+.field-actions {
+  display: flex;
+  gap: 8px;
+}
+
+textarea {
+  width: 100%;
+  background: transparent;
+  color: var(--text);
+  border: 1px solid #333;
+  padding: 10px;
+  font-family: "Fira Code", monospace;
+  font-size: 0.95rem;
+  resize: none;
+  border-radius: 4px;
+  box-sizing: border-box;
+  outline: none;
+  transition: all 0.2s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.left textarea#header {
+  min-height: 120px; /* less high */
+}
+
+.left textarea#payload {
+  min-height: 280px; /* taller */
+}
+
+.left textarea#privateKey,
+.left textarea#publicKey {
+  min-height: 90px; /* between header and payload */
+}
+
+textarea:focus {
+  border-color: #61dafb;
+  background: #222;
+}
+
+.btn {
+  background: var(--btn-bg);
+  color: var(--text);
+  border: none;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  user-select: none;
+  transition: background-color 0.2s ease;
+}
+
+.btn:hover {
+  background: var(--btn-hover-bg);
+}
+
+.btn.small {
+  font-size: 0.7rem;
+  padding: 3px 8px;
+}
+
+.validation-message {
+  font-size: 0.75rem;
+  margin-top: 4px;
+  min-height: 18px;
+}
+
+.validation-error {
+  color: var(--text-error);
+}
+
+.validation-success {
+  color: var(--text-success);
+}
+
+.validation-warning {
+  color: var(--text-warning);
+}
+
+/* Code highlighting styles */
+.code-input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.code-highlight {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 10px;
+  font-family: "Fira Code", monospace;
+  font-size: 0.95rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  pointer-events: none;
+  background: var(--background-alt);
+  overflow-y: auto;
+  border: 1px solid #333;
+  border-radius: 4px;
+}
+
+/* JSON syntax highlighting */
+.json-string { color: #a8ff60; }
+.json-number { color: #ff9d00; }
+.json-boolean { color: #ff628c; }
+.json-null { color: #ff628c; }
+.json-key { color: #61dafb; }
+.json-punctuation { color: #666; }
+
+/* JWT container and highlight */
+
+.jwt-input-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 280px;
+}
+
+#jwt {
+  width: 100%;
+  min-height: 280px;
+  background: var(--background-alt);
+  color: var(--text);
+  border: 1px solid #333;
+  padding: 10px;
+  font-family: "Fira Code", monospace;
+  font-size: 0.95rem;
+  border-radius: 4px;
+  box-sizing: border-box;
+  outline: none;
+  transition: all 0.2s ease;
+  resize: none;
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  overflow-y: auto;
+}
+
+#jwt:focus {
+  border-color: #61dafb;
+  background: #222;
+}
+
+.jwt-header {
+  color: #61dafb;
+}
+
+.jwt-payload {
+  color: #8bc34a;
+}
+
+.jwt-signature {
+  color: #ff9800;
+}
+
+.jwt-dot {
+  color: #666;
+  padding: 0 2px;
+}
+
+.jwt-dot {
+  padding: 0 4px;
+  color: #666;
+  font-weight: bold;
+}
+
+#jwt {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 40px;
+  background: transparent;
+  color: transparent;
+  caret-color: var(--text);
+  border: 1px solid #333;
+  padding: 10px;
+  font-family: "Fira Code", monospace;
+  font-size: 0.95rem;
+  width: 100%;
+  min-height: 790px;
+  border-radius: 4px;
+  box-sizing: border-box;
+  outline-offset: 2px;
+  outline: 1px solid transparent;
+  transition: outline-color 0.2s ease;
+  resize: none;
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  overflow-y: auto;
+  z-index: 2;
+}
+
+#jwt:focus {
+  outline-color: #61dafb;
+  background: #222;
+}
+
+.jwt-actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* JWT part colors */
+
+.jwt-header {
+  color: #61dafb;
+}
+.jwt-payload {
+  color: #8bc34a;
+}
+.jwt-signature {
+  color: #ff9800;
+}
+.jwt-dot {
+  color: #666;
+  margin: 0 2px;
+}
