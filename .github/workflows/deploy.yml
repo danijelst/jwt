@@ -24,8 +24,13 @@ jobs:
       - name: Install dependencies
         run: bun install
 
+      - name: Copy static files
+        run: |
+          mkdir -p ./dist
+          cp -r public/* dist/
+
       - name: Build your site
-        run: bun run
+        run: bun run build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
