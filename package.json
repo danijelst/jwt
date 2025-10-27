@@ -2,7 +2,7 @@
   "name": "jwt-server",
   "private": true,
   "scripts": {
-    "build": "bun build ./script.js --outdir ./dist",
+    "build": "bun build ./public/script.js --outdir ./dist",
     "start": "bun run server.js",
     "dev": "bun --watch run server.js"
   },
